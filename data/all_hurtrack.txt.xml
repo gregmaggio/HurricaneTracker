@@ -1,0 +1,809 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<metadata>
+	<idinfo>
+		<citation>
+			<citeinfo>
+				<origin>National Oceanic and Atmospheric Administration, National Hurricane Center</origin>
+				<pubdate>201003</pubdate>
+				<title Sync="TRUE">all_hurtrack.txt</title>
+				<pubinfo>
+					<pubplace>Charleston, SC</pubplace>
+					<publish>National Oceanic and Atmospheric Administration Coastal Services Center</publish>
+				</pubinfo>
+				<onlink>http://csc-s-maps-q.csc.noaa.gov/hurricanes/viewer.html</onlink>
+				<onlink>http://www.csc.noaa.gov</onlink>
+				<ftname Sync="TRUE">all_hurtrack.txt</ftname></citeinfo>
+		</citation>
+		<descript>
+			<abstract>
+This Historical North Atlantic Tropical Cyclone Tracks file contains the
+6-hourly (0000, 0600, 1200, 1800 UTC) center locations and intensities for
+all subtropical depressions and storms, extratropical storms, tropical
+lows, waves, disturbances, depressions and storms, and all hurricanes,
+from 1851 through 2009.
+</abstract>
+			<purpose>
+These data are intended for geographic display and analysis at the
+national level, and for large regional areas.  The data should be
+displayed and analyzed at scales appropriate for 1:2,000,000-scale data.
+No responsibility is assumed by the National Oceanic and Atmospheric
+Administration in the use of these data.
+</purpose>
+			<supplinf>
+An ASCII format version of the Historical Atlantic Tropical Cyclone Tracks
+file is available at &lt;http://www.nhc.noaa.gov/pastall.shtml&gt;.
+
+For more information on the Saffir-Simpson Hurricane Scale, please see
+&lt;http://www.nhc.noaa.gov/aboutsshs.shtml&gt;.
+
+For more information on tropical cyclone advisories, please see
+&lt;http://www.nhc.noaa.gov/HAW2/english/forecast/forecast_products.shtml&gt;.
+
+General information on subtropical and tropical cyclones is available from
+the National Oceanic and Atmospheric Administration, Atlantic
+Oceanographic and Meteorological Laboratory, Hurricane Research Division
+FAQ page at &lt;http://www.aoml.noaa.gov/hrd/tcfaq/tcfaqHED.html&gt;, and from
+the National Hurricane Center Hurricane Basics page at
+&lt;http://www.nhc.noaa.gov/HAW2/english/basics.shtml&gt;.
+</supplinf>
+			<langdata Sync="TRUE">en</langdata></descript>
+		<timeperd>
+			<timeinfo>
+				<rngdates>
+					<begdate>18510625</begdate>
+					<enddate>20091111</enddate>
+				</rngdates>
+				<sngdate><caldate>REQUIRED: The year (and optionally month, or month and day) for which the data set corresponds to the ground.</caldate></sngdate></timeinfo>
+			<current>Ground condition</current>
+		</timeperd>
+		<status>
+			<progress>Complete</progress>
+			<update>Annually</update>
+		</status>
+		<spdom>
+			<bounding>
+				<westbc>-109.3</westbc>
+				<eastbc>12.0</eastbc>
+				<northbc>69.0</northbc>
+				<southbc>7.2</southbc>
+			</bounding>
+		</spdom>
+		<keywords>
+			<theme>
+				<themekt>ISO 19115 Topic Category</themekt>
+				<themekey>climatologyMeteorologyAtmosphere</themekey>
+				<themekey>oceans</themekey>
+				<themekey>environment</themekey>
+			</theme>
+			<theme>
+				<themekt>None</themekt>
+				<themekey>Hurricanes</themekey>
+				<themekey>Historical hurricanes</themekey>
+				<themekey>Hurricane tracks</themekey>
+				<themekey>Historical hurricane tracks</themekey>
+				<themekey>Tropical storms</themekey>
+				<themekey>Subtropical storms</themekey>
+				<themekey>Subtropical depressions</themekey>
+				<themekey>Tropical depressions</themekey>
+				<themekey>Tropical disturbances</themekey>
+				<themekey>Tropical waves</themekey>
+				<themekey>Tropical lows</themekey>
+				<themekey>Extratropical storms</themekey>
+				<themekey>Major hurricanes</themekey>
+				<themekey>Intense hurricanes</themekey>
+				<themekey>Tropical storm tracks</themekey>
+				<themekey>Historical tropical cyclone tracks</themekey>
+				<themekey>Tropical cyclones</themekey>
+				<themekey>Subtropical cyclones</themekey>
+			</theme>
+			<place>
+				<placekt>None</placekt>
+				<placekey>United States</placekey>
+				<placekey>Atlantic</placekey>
+				<placekey>North Atlantic Basin</placekey>
+				<placekey>Gulf of Mexico</placekey>
+				<placekey>Caribbean Sea</placekey>
+			</place>
+		</keywords>
+		<accconst>None</accconst>
+		<useconst>
+None.  Acknowledgement of the National Oceanic and Atmospheric
+Administration, National Hurricane Center, and/or the NOAA
+Coastal Services Center would be appreciated in products derived
+from these data.
+</useconst>
+		<ptcontac>
+			<cntinfo>
+				<cntorgp>
+					<cntorg>NOAA Coastal Services Center</cntorg>
+				</cntorgp>
+				<cntpos>Clearinghouse Manager</cntpos>
+				<cntaddr>
+					<addrtype>Mailing and physical address</addrtype>
+					<address>2234 South Hobson Avenue</address>
+					<city>Charleston</city>
+					<state>SC</state>
+					<postal>29405-2413</postal>
+					<country>USA</country>
+				</cntaddr>
+				<cntvoice>843-740-1200</cntvoice>
+				<cntfax>843-740-1315</cntfax>
+				<cntemail>clearinghouse@csc.noaa.gov</cntemail>
+				<hours>Monday - Friday 8:00 AM - 5:00 PM Eastern Time</hours>
+			</cntinfo>
+		</ptcontac>
+		<native Sync="TRUE">Microsoft Windows XP Version 5.1 (Build 2600) Service Pack 3; ESRI ArcCatalog 9.3.1.3000</native>
+		<natvform Sync="TRUE">Text File</natvform></idinfo>
+	<dataqual>
+		<attracc>
+			<attraccr>
+Specific accuracy information can be found in McAdie, C.J., David, J.E.,
+Landsea, C.W., Neumann, C.J., and G.R. Hammer, 2009: Tropical Cyclones of the
+North Atlantic Ocean, 1851-2006 (sixth revision).  NCDC/NHC Historical
+Climatology Series 6-2, pp.11-14.  Similar standards and techniques were
+applied to the post-1999 data.
+</attraccr>
+		</attracc>
+		<logic>
+Over-water portions of storm tracks before 1944 are subject to considerable
+uncertainties.  Aircraft reconnaissance of storms near critical areas was
+introduced in 1944, and continuous weather satellite surveillance was
+introduced in the mid-1960s.  These two developments mean that more recent
+storm records have a higher degree of accuracy than those prior to 1944.
+No tests for logical consistency have been performed on this data set.
+</logic>
+		<complete>
+This data set includes all known Atlantic Basin (Gulf of Mexico, Caribbean
+Sea, and North Atlantic Ocean) tropical cyclones between 1851 and 2008.  The
+term tropical cyclone as used here refers to subtropical depressions and
+storms, tropical depressions and storms, and all categories of hurricanes
+from Category 1 to Category 5.  This dataset also includes hybrid systems
+such as tropical lows, waves, subtropical depressions and storms, as well
+as extratropical storms.
+</complete>
+		<posacc>
+			<horizpa>
+				<horizpar>
+Over-water portions of storm tracks before 1944 are subject to
+considerable uncertainties.  Aircraft reconnaissance of storms near
+critical areas was introduced in 1944, and continuous weather satellite
+surveillance was introduced in the mid-1960s.  These two developments
+allow a high degree of probability that more recent storm center
+locations were determined with a reasonable degree of accuracy.
+</horizpar>
+			</horizpa>
+		</posacc>
+		<lineage>
+			<srcinfo>
+				<srccite>
+					<citeinfo>
+						<origin>
+National Oceanic and Atmospheric Administration, Tropical Prediction
+Center/National Hurricane Center
+</origin>
+						<pubdate>201003</pubdate>
+						<title>Atlantic Tracks File</title>
+						<edition>2009</edition>
+						<geoform>Map</geoform>
+						<pubinfo>
+							<pubplace>Miami, FL</pubplace>
+							<publish>NOAA National Hurricane Center</publish>
+						</pubinfo>
+						<onlink>&lt;http://www.nhc.noaa.gov/pastall.shtml&gt;</onlink>
+					</citeinfo>
+				</srccite>
+				<typesrc>Online</typesrc>
+				<srctime>
+					<timeinfo>
+						<rngdates>
+							<begdate>1851</begdate>
+							<enddate>2009</enddate>
+						</rngdates>
+					</timeinfo>
+					<srccurr>Ground condition</srccurr>
+				</srctime>
+				<srccitea>atl_hurtrack</srccitea>
+				<srccontr>Spatial and attribute information.</srccontr>
+			</srcinfo>
+			<procstep>
+				<procdesc>
+Historical track information was downloaded from the National Hurricane
+Center's Web site.  The textual information was formatted using a PERL
+script written by the NOAA Coastal Services Center.  The file was then
+brought into ArcGIS as a table and converted to a shapefile with
+attributes using a custom Visual Basic extension.
+</procdesc>
+				<srcused>atl_hurtrack</srcused>
+				<procdate>20101111</procdate>
+				<proccont>
+					<cntinfo>
+						<cntorgp>
+							<cntorg>NOAA Coastal Services Center</cntorg>
+						</cntorgp>
+						<cntaddr>
+							<addrtype>Mailing and physical address</addrtype>
+							<address>2234 South Hobson Avenue</address>
+							<city>Charleston</city>
+							<state>SC</state>
+							<postal>29405-2413</postal>
+							<country>USA</country>
+						</cntaddr>
+						<cntvoice>843-740-1200</cntvoice>
+						<cntfax>843-740-1315</cntfax>
+						<cntemail>clearinghouse@csc.noaa.gov</cntemail>
+						<hours>Monday - Friday 8:00 AM - 5:00 PM Eastern Time</hours>
+					</cntinfo>
+				</proccont>
+			</procstep>
+			<procstep><procdesc Sync="TRUE">Metadata imported.</procdesc><srcused Sync="TRUE">C:\DOCUME~1\ETHAN~1.GIB\LOCALS~1\Temp\xml63.tmp</srcused><procdate Sync="TRUE">20100312</procdate><proctime Sync="TRUE">10045100</proctime></procstep></lineage>
+	</dataqual>
+	<spdoinfo>
+		<direct>Vector</direct>
+		<ptvctinf>
+			<sdtsterm>
+				<sdtstype>String</sdtstype>
+				<ptvctcnt>39063</ptvctcnt>
+			</sdtsterm>
+		</ptvctinf>
+	</spdoinfo>
+	<spref>
+		<horizsys>
+			<geograph>
+				<latres>0.1</latres>
+				<longres>0.1</longres>
+				<geogunit>Decimal degrees</geogunit>
+			</geograph>
+			<geodetic>
+				<horizdn>North American Datum of 1983</horizdn>
+				<ellips>GRS80</ellips>
+				<semiaxis>6378137.0</semiaxis>
+				<denflat>298.257222</denflat>
+			</geodetic>
+		</horizsys>
+	</spref>
+	<eainfo>
+		<detailed>
+			<enttyp>
+				<enttypl>Subtropical and tropical cyclone tracks</enttypl>
+				<enttypd>
+The path followed by the center of a subtropical or tropical cyclone or
+related storm.  A subtropical cyclone is a low pressure system that
+develops over subtropical waters and that initially has a non-tropical
+circulation but in which some elements of tropical cyclone cloud
+structure are present.  Subtropical cyclones can evolve into tropical
+cyclones.  A tropical cyclone is a warm-core, non-frontal low-pressure
+system that develops over tropical or subtropical waters, covering a
+large region and with organized convection (i.e. thunderstorm activity)
+and definite cyclonic (counter-clockwise circular) surface wind
+circulation.  Related storms are those that develop into subtropical or
+tropical cyclones or develop from them, such as tropical disturbances,
+lows, waves, and extratropical storms.
+</enttypd>
+				<enttypds>National Oceanic and Atmospheric Administration, National Hurricane Center</enttypds>
+			</enttyp>
+			<attr>
+				<attrlabl>Shape</attrlabl>
+				<attrdef>The representation of the entity in the data.</attrdef>
+				<attrdefs>U.S. Geological Survey</attrdefs>
+				<attrdomv>
+					<edom>
+						<edomv>PolyLine</edomv>
+						<edomvd>
+1-dimensional element that may or may not surround a 2-dimensional
+element.
+</edomvd>
+						<edomvds>ESRI GIS software</edomvds>
+					</edom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>Year</attrlabl>
+				<attrdef>
+The year of the storm advisory, in the format yyyy.  Advisories are
+issued for storms that have attained at least tropical depression
+status, and are issued every 6 hours, at 0000, 0600, 1200, and 1800
+hours.  Tropical Prediction Center/National Hurricane Center advisories
+are discontinued once a storm makes landfall and all storm warnings are
+dropped, or when the wind speed drops below 30 knots or 35 mph.  The
+records for each date are listed in order.
+</attrdef>
+				<attrdefs>National Oceanic and Atmospheric Administration, National Hurricane Center</attrdefs>
+				<attrdomv>
+					<rdom>
+						<rdommin>1851</rdommin>
+						<rdommax>2009</rdommax>
+					</rdom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>Month</attrlabl>
+				<attrdef>
+The month of the storm advisory.  Advisories are issued for storms that
+have attained at least tropical depression status, and are issued every
+6 hours, at 0000, 0600, 1200, and 1800 hours.  Tropical Prediction
+Center/National Hurricane Center advisories are discontinued once a
+storm makes landfall and all storm warnings are dropped, or when the
+wind speed drops below 30 knots or 35 mph.  The records for each date
+are listed in order.
+</attrdef>
+				<attrdefs>National Oceanic and Atmospheric Administration, National Hurricane Center</attrdefs>
+				<attrdomv>
+					<rdom>
+						<rdommin>1</rdommin>
+						<rdommax>12</rdommax>
+					</rdom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>Day</attrlabl>
+				<attrdef>
+The day of the storm advisory.  Advisories are issued for storms that
+have attained at least tropical depression status, and are issued every
+6 hours, at 0000, 0600, 1200, and 1800 hours.  Tropical Prediction
+Center/National Hurricane Center advisories are discontinued once a
+storm makes landfall and all storm warnings are dropped, or when the
+wind speed drops below 30 knots or 35 mph.  The records for each date
+are listed in order.
+</attrdef>
+				<attrdefs>National Oceanic and Atmospheric Administration, National Hurricane Center</attrdefs>
+				<attrdomv>
+					<rdom>
+						<rdommin>1</rdommin>
+						<rdommax>31</rdommax>
+					</rdom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>Ad_Time</attrlabl>
+				<attrdef>
+The storm advisory time.  Times are in Zulu (a.k.a., Universal Time-UTC,
+Greenwich Mean Time-GMT) starting with 0000Z and ending with 1800Z.
+</attrdef>
+				<attrdefs>National Oceanic and Atmospheric Administration, National Hurricane Center</attrdefs>
+				<attrdomv>
+					<rdom>
+						<rdommin>0000Z</rdommin>
+						<rdommax>1800Z</rdommax>
+					</rdom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>Btid</attrlabl>
+				<attrdef>
+The unique event identifier.  Identifiers are sequential, starting with
+1 in June, 1851 and ending with 1419 in November, 2009.
+</attrdef>
+				<attrdefs>National Oceanic and Atmospheric Administration, National Hurricane Center</attrdefs>
+				<attrdomv>
+					<rdom>
+						<rdommin>1</rdommin>
+						<rdommax>1419</rdommax>
+					</rdom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>Name</attrlabl>
+				<attrdef>
+The given name of a storm.  Storms are named if they are true tropical
+storms and attain a sustained wind speed of at least 39 mph.
+</attrdef>
+				<attrdefs>National Oceanic and Atmospheric Administration, National Hurricane Center</attrdefs>
+				<attrdomv>
+					<codesetd>
+						<codesetn>World-Wide Tropical Cyclone Names</codesetn>
+						<codesets>World Meteorological Organization</codesets>
+					</codesetd>
+				</attrdomv>
+				<attrdomv>
+					<edom>
+						<edomv>Not Named</edomv>
+						<edomvd>
+There is no given name for the storm.  Prior to 1950 storms were not
+named.
+</edomvd>
+						<edomvds>National Oceanic and Atmospheric Administration, National Hurricane Center</edomvds>
+					</edom>
+				</attrdomv>
+				<attrdomv>
+					<edom>
+						<edomv>Subtrop</edomv>
+						<edomvd>
+There is no given name for the storm because it was classified as a
+subtropical depression or subtropical storm.
+</edomvd>
+						<edomvds>National Oceanic and Atmospheric Administration, National Hurricane Center</edomvds>
+					</edom>
+				</attrdomv>
+				<attrdomv>
+					<edom>
+						<edomv>Subtrop1</edomv>
+						<edomvd>
+There is no given name for the storm because it was classified as a
+subtropical depression or subtropical storm.  Subtrop1 is the first
+subtropical cyclone for a given year.  A storm may initially be
+identified as Subtrop1 but then be given a name if it develops into
+a tropical storm; in this case there will be no storm identified as
+Subtrop1 for the year even though there may be a storm identified as
+Subtrop2.
+</edomvd>
+						<edomvds>National Oceanic and Atmospheric Administration, National Hurricane Center</edomvds>
+					</edom>
+				</attrdomv>
+				<attrdomv>
+					<edom>
+						<edomv>Subtrop2</edomv>
+						<edomvd>
+There is no given name for the storm because it was classified as a
+subtropical depression or subtropical storm.  Subtrop2 is the second
+subtropical cyclone for a given year.  A storm may initially be
+identified as Subtrop2 but then be given a name if it develops into
+a tropical storm; in this case there will be no storm identified as
+Subtrop2 for the year even though there may be a storm identified as
+Subtrop3.
+</edomvd>
+						<edomvds>National Oceanic and Atmospheric Administration, National Hurricane Center</edomvds>
+					</edom>
+				</attrdomv>
+				<attrdomv>
+					<edom>
+						<edomv>Subtrop3</edomv>
+						<edomvd>
+There is no given name for the storm because it was classified as a
+subtropical depression or subtropical storm.  Subtrop3 is the third
+subtropical cyclone for a given year.  A storm may initially be
+identified as Subtrop3 but then be given a name if it develops into
+a tropical storm; in this case there will be no storm identified as
+Subtrop3 for the year even though there may be a storm identified as
+Subtrop4.
+</edomvd>
+						<edomvds>National Oceanic and Atmospheric Administration, National Hurricane Center</edomvds>
+					</edom>
+				</attrdomv>
+				<attrdomv>
+					<edom>
+						<edomv>Subtrop4</edomv>
+						<edomvd>
+There is no given name for the storm because it was classified as a
+subtropical depression or subtropical storm.  Subtrop4 is the fourth
+subtropical cyclone for a given year.  A storm may initially be
+identified as Subtrop4 but then be given a name if it develops into
+a tropical storm; in this case there will be no storm identified as
+Subtrop4 for the year.
+</edomvd>
+						<edomvds>National Oceanic and Atmospheric Administration, National Hurricane Center</edomvds>
+					</edom>
+				</attrdomv>
+				<attrdomv>
+					<edom>
+						<edomv>Unnamed</edomv>
+						<edomvd>
+Storms from 1950 or later may be unnamed if they were not recognized
+as tropical storms or hurricanes at the time of their occurrence.
+</edomvd>
+						<edomvds>National Oceanic and Atmospheric Administration, National Hurricane Center</edomvds>
+					</edom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>Lat</attrlabl>
+				<attrdef>
+The latitude measurement of the storm's center, in tenths of decimal
+degrees.
+</attrdef>
+				<attrdefs>National Oceanic and Atmospheric Administration, National Hurricane Center</attrdefs>
+				<attrdomv>
+					<rdom>
+						<rdommin>7.2</rdommin>
+						<rdommax>69.0</rdommax>
+					</rdom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>Long</attrlabl>
+				<attrdef>
+The longitude measurement of the storm's center, in tenths of decimal
+degrees.
+</attrdef>
+				<attrdefs>National Oceanic and Atmospheric Administration, National Hurricane Center</attrdefs>
+				<attrdomv>
+					<rdom>
+						<rdommin>-109.3</rdommin>
+						<rdommax>12.0</rdommax>
+					</rdom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>Wind_kts</attrlabl>
+				<attrdef>
+The measured or estimated windspeed at the time of the advisory, in
+whole knots.
+</attrdef>
+				<attrdefs>National Oceanic and Atmospheric Administration, National Hurricane Center</attrdefs>
+				<attrdomv>
+					<rdom>
+						<rdommin>10</rdommin>
+						<rdommax>165</rdommax>
+					</rdom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>Pressure</attrlabl>
+				<attrdef>
+The measured or estimated barometric pressure at the time of the
+advisory, in millibars.  A value of 0 indicates the barometric pressure
+is unknown.
+</attrdef>
+				<attrdefs>National Oceanic and Atmospheric Administration, National Hurricane Center</attrdefs>
+				<attrdomv>
+					<rdom>
+						<rdommin>0</rdommin>
+						<rdommax>1024</rdommax>
+					</rdom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>Cat</attrlabl>
+				<attrdef>
+The intensity classification of the storm.  Hurricanes are classified
+according to the Saffir-Simpson Hurricane Scale.
+</attrdef>
+				<attrdefs>National Oceanic and Atmospheric Administration, National Hurricane Center</attrdefs>
+				<attrdomv>
+					<edom>
+						<edomv>D</edomv>
+						<edomvd>
+The storm was classified as a tropical disturbance at the time of
+the advisory.  A tropical disturbance is a discrete tropical weather
+system of apparently organized convection (i.e. thunderstorm
+activity), which is generally 100 to 300 nautical miles in diameter.
+It originates in the tropics or subtropics, has a nonfrontal
+migratory character, and maintains its identity for 24 hours or
+more.  It does not necessarily exhibit circulation, but may develop
+into a tropical cyclone.
+</edomvd>
+						<edomvds>National Oceanic and Atmospheric Administration, National Hurricane Center</edomvds>
+					</edom>
+				</attrdomv>
+				<attrdomv>
+					<edom>
+						<edomv>E</edomv>
+						<edomvd>
+The storm was classified as Extratropical at the time of the
+advisory.  Extratropical is a term used in advisories and tropical
+summaries to indicate that a cyclone has lost its tropical
+characteristics.  The term implies both that the cyclone has moved
+out of the tropics and that the energy source driving the storm has
+changed.  While tropical cyclones derive their energy from the
+convection of warm, moist air, extratropical storms derive their
+energy from the temperature contrast between warm and cold air
+masses.  It is important to note that cyclones can become
+extratropical and still retain winds of hurricane or tropical storm
+force.
+</edomvd>
+						<edomvds>National Oceanic and Atmospheric Administration, National Hurricane Center</edomvds>
+					</edom>
+				</attrdomv>
+				<attrdomv>
+					<edom>
+						<edomv>H1</edomv>
+						<edomvd>
+The storm was classified as a Category 1 hurricane at the time of
+the advisory.  A Category 1 hurricane is a tropical cyclone with
+maximum one-minute average sustained surface (10 meter) winds of 64
+knots/74 mph to 82 knots/95 mph, inclusive.
+</edomvd>
+						<edomvds>National Oceanic and Atmospheric Administration, National Hurricane Center</edomvds>
+					</edom>
+				</attrdomv>
+				<attrdomv>
+					<edom>
+						<edomv>H2</edomv>
+						<edomvd>
+The storm was classified as a Category 2 hurricane at the time of
+the advisory .  A Category 2 hurricane is a tropical cyclone with
+maximum one-minute average sustained surface (10 meter) winds of 83
+knots/96 mph to 95 knots/110 mph, inclusive.
+</edomvd>
+						<edomvds>National Oceanic and Atmospheric Administration, National Hurricane Center</edomvds>
+					</edom>
+				</attrdomv>
+				<attrdomv>
+					<edom>
+						<edomv>H3</edomv>
+						<edomvd>
+The storm was classified as a Category 3 hurricane at the time of
+the advisory.  A Category 3 hurricane is a tropical cyclone with
+maximum sustained surface (10 meter) winds of 96 knots/111 mph to
+113 knots/130 mph, inclusive.
+</edomvd>
+						<edomvds>National Oceanic and Atmospheric Administration, National Hurricane Center</edomvds>
+					</edom>
+				</attrdomv>
+				<attrdomv>
+					<edom>
+						<edomv>H4</edomv>
+						<edomvd>
+The storm was classified as a Category 4 hurricane at the time of
+the advisory.  A Category 4 hurricane is a tropical cyclone with
+maximum one-minute average sustained surface (10 meter) winds of 114
+knots/131 mph to 135 knots/155 mph, inclusive.
+</edomvd>
+						<edomvds>National Oceanic and Atmospheric Administration, National Hurricane Center</edomvds>
+					</edom>
+				</attrdomv>
+				<attrdomv>
+					<edom>
+						<edomv>H5</edomv>
+						<edomvd>
+The storm was classified as a Category 5 hurricane at the time of
+the advisory.  A Category 5 hurricane is a tropical cyclone with
+maximum one-minute average sustained surface (10 meter) winds greater
+than 135 knots/ 155 mph.
+</edomvd>
+						<edomvds>National Oceanic and Atmospheric Administration, National Hurricane Center</edomvds>
+					</edom>
+				</attrdomv>
+				<attrdomv>
+					<edom>
+						<edomv>L</edomv>
+						<edomvd>
+The storm was classified as a tropical low at the time of
+the advisory.  A tropical low indicates low pressure at the surface,
+but no other characteristics of a tropical cyclone are present.
+</edomvd>
+						<edomvds>National Oceanic and Atmospheric Administration, National Hurricane Center</edomvds>
+					</edom>
+				</attrdomv>
+				<attrdomv>
+					<edom>
+						<edomv>SD</edomv>
+						<edomvd>
+The storm was classified as a subtropical depression at the time of
+the advisory.  A subtropical depression is a subtropical cyclone
+with maximum one-minute average sustained surface (10 meter) winds of
+less than 34 knots/39 mph.
+</edomvd>
+						<edomvds>National Oceanic and Atmospheric Administration, National Hurricane Center</edomvds>
+					</edom>
+				</attrdomv>
+				<attrdomv>
+					<edom>
+						<edomv>SS</edomv>
+						<edomvd>
+The storm was classified as a subtropical storm at the time of the
+advisory.  A subtropical storm is a subtropical cyclone with maximum
+one-minute average sustained surface (10 meter) winds of 34 knots/39
+mph or greater.
+</edomvd>
+						<edomvds>National Oceanic and Atmospheric Administration, National Hurricane Center</edomvds>
+					</edom>
+				</attrdomv>
+				<attrdomv>
+					<edom>
+						<edomv>TD</edomv>
+						<edomvd>
+The storm was classified as a tropical depression at the time of
+the advisory.  A tropical depression is a tropical cyclone with
+maximum one-minute average sustained surface (10 meter) winds of less
+than 34 knots/ 39 mph.
+</edomvd>
+						<edomvds>National Oceanic and Atmospheric Administration, National Hurricane Center</edomvds>
+					</edom>
+				</attrdomv>
+				<attrdomv>
+					<edom>
+						<edomv>TS</edomv>
+						<edomvd>
+The storm was classified as a tropical storm at the time of the
+advisory.  A tropical storm is a tropical cyclone with maximum
+one-minute average sustained surface (10 meter) winds of 34 knots/39
+mph to 64 knots/ 73 mph, inclusive.
+</edomvd>
+						<edomvds>National Oceanic and Atmospheric Administration, National Hurricane Center</edomvds>
+					</edom>
+				</attrdomv>
+				<attrdomv>
+					<edom>
+						<edomv>W</edomv>
+						<edomvd>
+The storm was classified as a tropical wave at the time of the
+advisory.  Tropical waves occur in the trade-wind easterlies, moving
+to the west with a wave-like motion.  They show a detectable shift
+in wind direction, which  may not be detectable at the surface but
+may be seen in the middle atmosphere.  A tropical wave may develop
+into a tropical cyclone.
+</edomvd>
+						<edomvds>National Oceanic and Atmospheric Administration, National Hurricane Center</edomvds>
+					</edom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>Basin</attrlabl>
+				<attrdef>The oceanic basin where the storm occurred.</attrdef>
+				<attrdefs>
+National Oceanic and Atmospheric Administration, NOAA Coastal Services
+Center
+</attrdefs>
+				<attrdomv>
+					<udom></udom>
+				</attrdomv>
+			</attr>
+		</detailed>
+	</eainfo>
+	<distinfo>
+		<distrib>
+			<cntinfo>
+				<cntorgp>
+					<cntorg>NOAA Coastal Services Center, National Oceanic and Atmospheric Administration</cntorg>
+				</cntorgp>
+				<cntaddr>
+					<addrtype>Mailing address</addrtype>
+					<address>2234 South Hobson Avenue</address>
+					<city>Charleston</city>
+					<state>SC</state>
+					<postal>29405-2413</postal>
+				</cntaddr>
+				<cntvoice>843-740-1200</cntvoice>
+			</cntinfo>
+		</distrib>
+		<resdesc>Live Data and Maps</resdesc>
+		<distliab>
+Although these data have been processed successfully on a computer system at
+the National Oceanic and Atmospheric Administration, no warranty expressed
+or implied is made by the National Oceanic and Atmospheric Administration
+regarding the utility of the data on any other system, nor shall the act of
+distribution constitute any such warranty.  No responsibility is assumed by
+the National Oceanic and Atmospheric Administration in the use of these data.
+</distliab>
+		<stdorder>
+			<digform>
+				<digtinfo>
+					<formname>ESRI Shapefile</formname>
+				</digtinfo>
+				<digtopt>
+					<onlinopt>
+						<computer>
+							<networka>
+								<networkr>&lt;http://csc-s-maps-q.csc.noaa.gov/hurricanes/viewer.html&gt;</networkr>
+							</networka>
+						</computer>
+					</onlinopt>
+				</digtopt>
+			</digform>
+			<fees>There is no charge for the online option.</fees>
+			<ordering>
+To obtain the data, visit the application online at
+&lt;http://csc-s-maps-q.csc.noaa.gov/hurricanes/viewer.html&gt;
+</ordering>
+		</stdorder>
+	</distinfo>
+	<metainfo>
+		<metd Sync="TRUE">20100312</metd>
+		<metc>
+			<cntinfo>
+				<cntorgp>
+					<cntorg>NOAA Coastal Services Center</cntorg>
+					<cntper>REQUIRED: The person responsible for the metadata information.</cntper></cntorgp>
+				<cntaddr>
+					<addrtype>Mailing and physical address</addrtype>
+					<address>2234 South Hobson Avenue</address>
+					<city>Charleston</city>
+					<state>SC</state>
+					<postal>29405-2413</postal>
+					<country>USA</country>
+				</cntaddr>
+				<cntvoice>843-740-1200</cntvoice>
+				<cntfax>843-740-1315</cntfax>
+				<cntemail>clearinghouse@csc.noaa.gov</cntemail>
+				<hours>Monday - Friday 8:00 AM - 5:00 PM Eastern Time</hours>
+			</cntinfo>
+		</metc>
+		<metstdn Sync="TRUE">FGDC Content Standards for Digital Geospatial Metadata</metstdn>
+		<metstdv Sync="TRUE">FGDC-STD-001-1998</metstdv>
+		<metsi>
+			<metscs>None</metscs>
+			<metsc>Unclassified</metsc>
+			<metshd>None</metshd>
+		</metsi>
+		<langmeta Sync="TRUE">en</langmeta><mettc Sync="TRUE">local time</mettc><metextns><onlink Sync="TRUE">http://www.esri.com/metadata/esriprof80.html</onlink><metprof Sync="TRUE">ESRI Metadata Profile</metprof></metextns></metainfo>
+	<Esri><MetaID>{044DAC9E-6D6B-48CD-9258-6007081B9118}</MetaID><CreaDate>20100312</CreaDate><CreaTime>10045100</CreaTime><SyncOnce>FALSE</SyncOnce><SyncDate>20100312</SyncDate><SyncTime>10161700</SyncTime><ModDate>20100312</ModDate><ModTime>10161700</ModTime></Esri><dataIdInfo><envirDesc Sync="TRUE">Microsoft Windows XP Version 5.1 (Build 2600) Service Pack 3; ESRI ArcCatalog 9.3.1.3000</envirDesc><dataLang><languageCode Sync="TRUE" value="en"></languageCode></dataLang><idCitation><resTitle Sync="TRUE">all_hurtrack.txt</resTitle><presForm><PresFormCd Sync="TRUE" value="001"></PresFormCd></presForm></idCitation></dataIdInfo><mdLang><languageCode Sync="TRUE" value="en"></languageCode></mdLang><mdStanName Sync="TRUE">ISO 19115 Geographic Information - Metadata</mdStanName><mdStanVer Sync="TRUE">DIS_ESRI1.0</mdStanVer><mdChar><CharSetCd Sync="TRUE" value="004"></CharSetCd></mdChar><mdHrLv><ScopeCd Sync="TRUE" value="005"></ScopeCd></mdHrLv><mdHrLvName Sync="TRUE">dataset</mdHrLvName><distInfo><distributor><distorTran><onLineSrc><orDesc Sync="TRUE">002</orDesc></onLineSrc></distorTran><distorFormat><formatName Sync="TRUE">Text File</formatName></distorFormat></distributor></distInfo><mdDateSt Sync="TRUE">20100312</mdDateSt></metadata>

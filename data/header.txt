@@ -1,0 +1,10 @@
+57970 07/05/1995 M= 6  2 SNBR=1223 BARRY       XING=0 SSS=0                     
+0-5: StormNumber
+6-15: MM/dd/yyyy
+17-20:	M=\s?\d+
+21-23:	\s*\d+
+25-33: SNBR=\s*\d+
+35-46: storm name
+47-52: XING=0 or XING=1
+54-80: SSS=
+

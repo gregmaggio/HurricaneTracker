@@ -1,0 +1,250 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Historical Hurricane Tracks</title>
+<link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/json2.js"></script>
+<script type="text/javascript" src="js/colors.js"></script>
+<script type="text/javascript" src="js/map.js"></script>
+<script type="text/javascript" src="js/spin.js"></script>
+<script type="text/javascript" src="js/loading.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+	var HurricaneTracker = {
+		_map: null,
+		_basins: null,
+		_years: null,
+		_storms: null,
+		initialize: function() {
+			Loading.initialize();
+			HurricaneTracker.resizeMapToFit();
+			HurricaneTracker._map = new Map("mapCanvas"); 
+			HurricaneTracker.getBasins();			
+		},
+		resizeMapToFit: function() {
+			var width = $('#container').width();
+			$('#mapCanvas').width(width);
+		},
+		getBasins: function() {
+			$.ajax({
+				url: 'http://datamagic.ca/Hurricane/basin',
+				beforeSend: function(jqXHR, settings) {
+					Loading.start();
+				},
+				success: function(data, textStatus, jqXHR) {
+					var basin = document.getElementById('basin');
+					for (var ii = 0; ii < data.length; ii++) {
+						var option = document.createElement('option');
+						option.value = data[ii].name;
+						option.text = data[ii].description;
+						basin.options[basin.options.length] = option;
+					}
+					basin.selectedIndex = 0;
+					HurricaneTracker._basins = data;
+				},
+				failure: function(data, textStatus, jqXHR) {
+					alert('Failed to get list of basins.');
+					HurricaneTracker._basins = null;
+				},
+				complete: function(jqXHR, textStatus) {
+					Loading.stop();
+				}
+			});
+		},
+		getYears: function(basin) {
+			$.ajax({
+				url: 'http://datamagic.ca/Hurricane/basin/' + basin + '/years',
+				beforeSend: function(jqXHR, settings) {
+					Loading.start();
+				},
+				success: function(data, textStatus, jqXHR) {
+					var year = document.getElementById('year');
+					for (var ii = 0; ii < data.length; ii++) {
+						var option = document.createElement('option');
+						option.value = data[ii];
+						option.text = data[ii];
+						year.options[year.options.length] = option;
+					}
+					year.selectedIndex = 0;
+					HurricaneTracker._years = data;
+				},
+				failure: function(data, textStatus, jqXHR) {
+					alert('Failed to get list of years.');
+					HurricaneTracker._years = null;
+				},
+				complete: function(jqXHR, textStatus) {
+					Loading.stop();
+				}
+			});
+		},
+		getStorms: function(basin, year) {
+			$.ajax({
+				url: 'http://datamagic.ca/Hurricane/storm/' + basin + '/' + year,
+				beforeSend: function(jqXHR, settings) {
+					Loading.start();
+				},
+				success: function(data, textStatus, jqXHR) {
+					var storm = document.getElementById('storm');
+					var option = document.createElement('option');
+					option.value = "0";
+					option.text = "ALL";
+					storm.options[storm.options.length] = option;
+					for (var ii = 0; ii < data.length; ii++) {
+						var option = document.createElement('option');
+						option.value = data[ii].stormNo;
+						option.text = data[ii].stormName;
+						storm.options[storm.options.length] = option;
+					}
+					storm.selectedIndex = 0;
+					HurricaneTracker._storms = data;
+				},
+				failure: function(data, textStatus, jqXHR) {
+					alert('Failed to get list of storm names.');
+					HurricaneTracker._storms = null;
+				},
+				complete: function(jqXHR, textStatus) {
+					Loading.stop();
+				}
+			});
+		},
+		getStormTracks: function(basin, year, stormNo) {
+			$.ajax({
+				url: 'http://datamagic.ca/Hurricane/storm/' + basin + '/' + year + '/' + stormNo,
+				beforeSend: function(jqXHR, settings) {
+					Loading.start();
+				},
+				success: function(data, textStatus, jqXHR) {
+					if (data.length > 0) {
+						var stormTracks = [
+							data[0]
+						];
+						var currStormNo = data[0].stormNo;
+						for (var ii = 1; ii < data.length; ii++) {
+							if (data[ii].stormNo != currStormNo) {
+								HurricaneTracker._map.addTrack(stormTracks);
+								stormTracks = [];
+								currStormNo = data[ii].stormNo;
+							}
+							stormTracks[stormTracks.length] = data[ii];
+						}
+						if (stormTracks.length > 0) {
+							HurricaneTracker._map.addTrack(stormTracks);
+						}
+						HurricaneTracker._map.moveToCenter();
+					}
+				},
+				failure: function(data, textStatus, jqXHR) {
+					alert('Failed to get list of storm tracks.');
+				},
+				complete: function(jqXHR, textStatus) {
+					Loading.stop();
+				}
+			});
+		},
+		basinChange: function() {
+			var basin = document.getElementById('basin');
+			var year = document.getElementById("year");
+			var storm = document.getElementById("storm");
+			HurricaneTracker.clearSelect(year);
+			HurricaneTracker.clearSelect(storm);
+			HurricaneTracker._map.clearTracks();
+			if (basin.selectedIndex > 0) {
+				HurricaneTracker.getYears(basin.options[basin.selectedIndex].value);
+				HurricaneTracker._map.setCenter(HurricaneTracker._basins[basin.selectedIndex].centerX, HurricaneTracker._basins[basin.selectedIndex].centerY);
+				HurricaneTracker._map.setZoom(HurricaneTracker._basins[basin.selectedIndex].zoom);
+			}
+		},
+		yearChange: function() {
+			var basin = document.getElementById('basin');
+			var year = document.getElementById("year");
+			var storm = document.getElementById("storm");
+			HurricaneTracker.clearSelect(storm);
+			HurricaneTracker._map.clearTracks();
+			if ((basin.selectedIndex > 0) && (year.selectedIndex > 0)) {
+				HurricaneTracker.getStorms(basin.options[basin.selectedIndex].value, year.options[year.selectedIndex].value);
+			}
+		},
+		stormChange: function() {
+			var basin = document.getElementById('basin');
+			var year = document.getElementById("year");
+			var storm = document.getElementById("storm");
+			HurricaneTracker._map.clearTracks();
+			if ((basin.selectedIndex > 0) && (year.selectedIndex > 0) && (storm.selectedIndex > 0)) {
+				HurricaneTracker.getStormTracks(basin.options[basin.selectedIndex].value, year.options[year.selectedIndex].value, storm.options[storm.selectedIndex].value);
+			}
+		},
+		clearSelect: function(select) {
+			if (select && select.options) {
+				for (var index = select.options.length - 1; index > 0; index--) {
+					select.options[index] = null;
+				}
+				select.selectedIndex = 0;
+			}
+		}
+	};
+	$(window).resize(function(){
+		window.setTimeout(HurricaneTracker.resizeMapToFit, 250);
+	});
+</script>
+</head>
+<body>
+	<div class="navbar-wrapper">
+		<div class="container">
+			<nav class="navbar navbar-inverse navbar-static-top">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+					<div id="navbar" class="navbar-collapse collapse">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="index.htm">Tracks By Year</a></li>
+							<li><a href="enso.htm">Tracks By ENSO</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</div>
+	<div id="container" class="container marketing">
+		Basin:&nbsp;<select id="basin" onchange="HurricaneTracker.basinChange();"><option value="-1">Select An Item</option></select>
+		Year:&nbsp;<select id="year" onchange="HurricaneTracker.yearChange();"><option value="-1">Select An Item</option></select>
+		Storm:&nbsp;<select id="storm" onchange="HurricaneTracker.stormChange();"><option value="-1">Select An Item</option></select><br /><br />
+		<div id="mapCanvas" style="width:500px; height:500px;"></div>
+	</div>
+	<script type="text/javascript">
+	(function () {
+		$(document).ready(HurricaneTracker.initialize);
+	})();
+	</script>
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-43521161-1']);
+		_gaq.push(['_trackPageview']);
+		
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-43521161-1', 'datamagic.ca');
+		ga('send', 'pageview');
+		
+		$('#basin').bind('change', function() {
+			ga('send', 'event', 'dropdown', 'select', 'basin');
+		});
+		$('#year').bind('change', function() {
+			ga('send', 'event', 'dropdown', 'select', 'year');
+		});
+		$('#storm').bind('change', function() {
+			ga('send', 'event', 'dropdown', 'select', 'storm');
+		});
+	</script>
+	<div id="loading"></div>
+</body>
+</html>

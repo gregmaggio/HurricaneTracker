@@ -1,0 +1,5 @@
+57965 HR                  
+66435 HRCFL1BFL1 LA3 MS3 AL1
+  
+0-5: StormNumber
+6-7: Intensity

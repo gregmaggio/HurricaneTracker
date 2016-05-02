@@ -1,0 +1,272 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Historical Hurricane Tracks</title>
+<link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/json2.js"></script>
+<script type="text/javascript" src="js/colors.js"></script>
+<script type="text/javascript" src="js/map.js"></script>
+<script type="text/javascript" src="js/spin.js"></script>
+<script type="text/javascript" src="js/loading.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+	var ENSO = {
+		_map: null,
+		_basins: null,
+		_elNinos: null,
+		_laNinas: null,
+		initialize: function() {
+			Loading.initialize();
+			ENSO.resizeMapToFit();
+			ENSO._map = new Map("mapCanvas"); 
+			ENSO.getBasins();
+			ENSO.getAll();
+		},
+		resizeMapToFit: function() {
+			var width = $('#container').width();
+			$('#mapCanvas').width(width);
+		},
+		getBasins: function() {
+			$.ajax({
+				url: 'http://datamagic.ca/Hurricane/basin',
+				beforeSend: function(jqXHR, settings) {
+					Loading.start();
+				},
+				success: function(data, textStatus, jqXHR) {
+					var basin = document.getElementById('basin');
+					for (var ii = 0; ii < data.length; ii++) {
+						var option = document.createElement('option');
+						option.value = data[ii].name;
+						option.text = data[ii].description;
+						basin.options[basin.options.length] = option;
+					}
+					basin.selectedIndex = 0;
+					ENSO._basins = data;
+				},
+				failure: function(data, textStatus, jqXHR) {
+					alert('Failed to get list of basins.');
+					ENSO._basins = null;
+				},
+				complete: function(jqXHR, textStatus) {
+					Loading.stop();
+				}
+			});
+		},
+		getAll: function() {
+			$.ajax({
+				url: 'http://datamagic.ca/ENSO/ranges',
+				beforeSend: function(jqXHR, settings) {
+					Loading.start();
+				},
+				success: function(data, textStatus, jqXHR) {
+					ENSO._elNinos = [];
+					ENSO._laNinas = [];
+					for (var ii = 0; ii < data.length; ii++) {
+						if (data[ii].elNino) {
+							ENSO._elNinos[ENSO._elNinos.length] = data[ii];
+						} else if (data[ii].laNina) {
+							ENSO._laNinas[ENSO._laNinas.length] = data[ii];
+						}
+					}
+					ENSO.loadSelect(document.getElementById('elNino'), ENSO._elNinos);
+					ENSO.loadSelect(document.getElementById('laNina'), ENSO._laNinas);
+				},
+				failure: function(data, textStatus, jqXHR) {
+					alert('Failed to get list of ENSO oscillations.');
+				},
+				complete: function(jqXHR, textStatus) {
+					Loading.stop();
+				}
+			});
+		},
+		formatMonth: function(month) {
+			switch (month) {
+			case 1: return 'Jan';
+			case 2: return 'Feb';
+			case 3: return 'Mar';
+			case 4: return 'Apr';
+			case 5: return 'May';
+			case 6: return 'Jun';
+			case 7: return 'Jul';
+			case 8: return 'Aug';
+			case 9: return 'Sep';
+			case 10: return 'Oct';
+			case 11: return 'Nov';
+			case 12: return 'Dec';
+			}
+			return '';
+		},
+		getDaysInMonth: function(month) {
+			switch (month) {
+			case 1: return 31;
+			case 2: return 28;
+			case 3: return 31;
+			case 4: return 30;
+			case 5: return 31;
+			case 6: return 30;
+			case 7: return 31;
+			case 8: return 31;
+			case 9: return 30;
+			case 10: return 31;
+			case 11: return 30;
+			case 12: return 31;
+			}
+			return 0;
+		},
+		loadSelect: function(select, array) {
+			if (!select.options) {
+				select.options = [];
+			}
+			for (var ii = 0; ii < array.length; ii++) {
+				var option = document.createElement('option');
+				option.text = ENSO.formatMonth(array[ii].startMonth) + ' ' + array[ii].startYear.toString() + ' to ' + ENSO.formatMonth(array[ii].endMonth) + ' ' + array[ii].endYear.toString();
+				option.value = ii.toString();
+				select.options[select.options.length] = option;
+			}
+		},
+		basinChange: function() {
+			var basin = document.getElementById('basin');
+			var elNino = document.getElementById('elNino');
+			var laNina = document.getElementById('laNina');
+			ENSO._map.clearTracks();
+			elNino.selectedIndex = 0;
+			laNina.selectedIndex = 0;
+			if (basin.selectedIndex > 0) {
+				ENSO._map.setCenter(ENSO._basins[basin.selectedIndex].centerX, ENSO._basins[basin.selectedIndex].centerY);
+				ENSO._map.setZoom(ENSO._basins[basin.selectedIndex].zoom);
+			}
+		},
+		elNinoChange: function() {
+			var elNino = document.getElementById('elNino');
+			var laNina = document.getElementById('laNina');
+			ENSO._map.clearTracks();
+			if (elNino.selectedIndex > 0) {
+				ENSO.getStormTracks(
+					ENSO._elNinos[elNino.selectedIndex - 1].startYear,
+					ENSO._elNinos[elNino.selectedIndex - 1].startMonth,
+					ENSO._elNinos[elNino.selectedIndex - 1].endYear,
+					ENSO._elNinos[elNino.selectedIndex - 1].endMonth);
+				laNina.selectedIndex = 0;
+			}
+		},
+		laNinaChange: function() {
+			var elNino = document.getElementById('elNino');
+			var laNina = document.getElementById('laNina');
+			ENSO._map.clearTracks();
+			if (laNina.selectedIndex > 0) {
+				ENSO.getStormTracks(
+					ENSO._laNinas[laNina.selectedIndex - 1].startYear,
+					ENSO._laNinas[laNina.selectedIndex - 1].startMonth,
+					ENSO._laNinas[laNina.selectedIndex - 1].endYear,
+					ENSO._laNinas[laNina.selectedIndex - 1].endMonth);
+				elNino.selectedIndex = 0;
+			}
+		},
+		getStormTracks: function(startYear, startMonth, endYear, endMonth) {
+			var basin = document.getElementById('basin');
+			if (basin.selectedIndex < 1) {
+			alert('Select a basin.');
+				return;
+			}
+			var selectedBasin = basin.options[basin.selectedIndex].value;
+			var startDay = 1;
+			var endDay = ENSO.getDaysInMonth(endMonth);
+			var url = 'http://datamagic.ca/Hurricane/storm/' + selectedBasin + '/' + startYear.toString() + '/' + startMonth.toString() + '/' + startDay.toString() + '/' + endYear.toString() + '/' + endMonth.toString() + '/' + endDay.toString() + '?sessionId=' + ENSO._sessionId;
+			$.ajax({
+				url: url,
+				beforeSend: function(jqXHR, settings) {
+					Loading.start();
+				},
+				success: function(data, textStatus, jqXHR) {
+					if (data.length > 0) {
+						var stormTracks = [
+							data[0]
+						];
+						var currStormNo = data[0].stormNo;
+						for (var ii = 1; ii < data.length; ii++) {
+							if (data[ii].stormNo != currStormNo) {
+								ENSO._map.addTrack(stormTracks);
+								stormTracks = [];
+								currStormNo = data[ii].stormNo;
+							}
+							stormTracks[stormTracks.length] = data[ii];
+						}
+						if (stormTracks.length > 0) {
+							ENSO._map.addTrack(stormTracks);
+						}
+						ENSO._map.moveToCenter();
+					}
+				},
+				failure: function(data, textStatus, jqXHR) {
+					alert('Failed to get list of storm tracks.');
+				},
+				complete: function(jqXHR, textStatus) {
+					Loading.stop();
+				}
+			});
+		}
+	};
+	$(window).resize(function(){
+		window.setTimeout(ENSO.resizeMapToFit, 250);
+	});
+</script>
+</head>
+<body>
+	<div class="navbar-wrapper">
+		<div class="container">
+			<nav class="navbar navbar-inverse navbar-static-top">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+					<div id="navbar" class="navbar-collapse collapse">
+						<ul class="nav navbar-nav">
+							<li><a href="index.htm">Tracks By Year</a></li>
+							<li class="active"><a href="enso.htm">Tracks By ENSO</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</div>
+	<div id="container" class="container marketing">
+		Basin:&nbsp;<select id="basin" onchange="ENSO.basinChange();"><option value="-1">Select An Item</option></select>
+		El Nino:&nbsp;<select id="elNino" onchange="ENSO.elNinoChange();"><option value="-1">Select An Item</option></select>
+		La Nina:&nbsp;<select id="laNina" onchange="ENSO.laNinaChange();"><option value="-1">Select An Item</option></select><br /><br />
+		<div id="mapCanvas" style="width:500px; height:500px;"></div>
+	</div>
+	<script type="text/javascript">
+	(function () {
+		$(document).ready(ENSO.initialize);
+	})();
+	</script>
+		<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-43521161-1']);
+		_gaq.push(['_trackPageview']);
+		
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-43521161-1', 'datamagic.ca');
+		ga('send', 'pageview');
+		
+		$('#elNino').bind('change', function() {
+			ga('send', 'event', 'dropdown', 'select', 'elNino');
+		});
+		
+		$('#laNina').bind('change', function() {
+			ga('send', 'event', 'dropdown', 'select', 'laNina');
+		});
+	</script>
+	<div id="loading"></div>
+</body>
+</html>
