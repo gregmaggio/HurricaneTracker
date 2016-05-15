@@ -41,8 +41,9 @@
 						option.text = data[ii].description;
 						basin.options[basin.options.length] = option;
 					}
-					basin.selectedIndex = 0;
 					HurricaneTracker._basins = data;
+					basin.selectedIndex = 1;
+					HurricaneTracker.basinChange();
 				},
 				failure: function(data, textStatus, jqXHR) {
 					alert('Failed to get list of basins.');
@@ -67,8 +68,9 @@
 						option.text = data[ii];
 						year.options[year.options.length] = option;
 					}
-					year.selectedIndex = 0;
 					HurricaneTracker._years = data;
+					year.selectedIndex = year.options.length - 1;
+					HurricaneTracker.yearChange();
 				},
 				failure: function(data, textStatus, jqXHR) {
 					alert('Failed to get list of years.');
@@ -97,8 +99,9 @@
 						option.text = data[ii].stormName;
 						storm.options[storm.options.length] = option;
 					}
-					storm.selectedIndex = 0;
 					HurricaneTracker._storms = data;
+					storm.selectedIndex = 1;
+					HurricaneTracker.stormChange();
 				},
 				failure: function(data, textStatus, jqXHR) {
 					alert('Failed to get list of storm names.');
