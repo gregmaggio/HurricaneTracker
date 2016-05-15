@@ -26,6 +26,8 @@
 			HurricaneViewer._map = new Map("mapCanvas"); 
 			if (HurricaneViewer._basin && HurricaneViewer._year && HurricaneViewer._stormNo) {
 				HurricaneViewer.getStormTracks(HurricaneViewer._basin, HurricaneViewer._year, HurricaneViewer._stormNo);
+			} else if (HurricaneViewer._basin && HurricaneViewer._year) {
+				HurricaneViewer.getStormTracks(HurricaneViewer._basin, HurricaneViewer._year, 0);
 			}
 		},
 		getQueryVariable: function(variable) {
