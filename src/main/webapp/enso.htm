@@ -1,5 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+<meta http-equiv="EXPIRES" content="Mon, 22 Jul 2002 11:12:01 GMT" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Historical Hurricane Tracks</title>
 <link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
@@ -30,7 +32,7 @@
 		},
 		getBasins: function() {
 			$.ajax({
-				url: 'http://datamagic.ca/Hurricane/basin',
+				url: '/Hurricane/api/basins',
 				beforeSend: function(jqXHR, settings) {
 					Loading.start();
 				},
@@ -56,7 +58,7 @@
 		},
 		getAll: function() {
 			$.ajax({
-				url: 'http://datamagic.ca/ENSO/ranges',
+				url: '/ENSO/api/ranges',
 				beforeSend: function(jqXHR, settings) {
 					Loading.start();
 				},
@@ -173,7 +175,7 @@
 			var selectedBasin = basin.options[basin.selectedIndex].value;
 			var startDay = 1;
 			var endDay = ENSO.getDaysInMonth(endMonth);
-			var url = 'http://datamagic.ca/Hurricane/storm/' + selectedBasin + '/' + startYear.toString() + '/' + startMonth.toString() + '/' + startDay.toString() + '/' + endYear.toString() + '/' + endMonth.toString() + '/' + endDay.toString() + '?sessionId=' + ENSO._sessionId;
+			var url = '/Hurricane/api/storm/' + selectedBasin + '/' + startYear.toString() + '/' + startMonth.toString() + '/' + startDay.toString() + '/' + endYear.toString() + '/' + endMonth.toString() + '/' + endDay.toString() + '?sessionId=' + ENSO._sessionId;
 			$.ajax({
 				url: url,
 				beforeSend: function(jqXHR, settings) {

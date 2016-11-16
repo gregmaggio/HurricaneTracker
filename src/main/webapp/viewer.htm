@@ -1,5 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+<meta http-equiv="EXPIRES" content="Mon, 22 Jul 2002 11:12:01 GMT" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Hurricane Track Viewer</title>
 <link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
@@ -50,7 +52,7 @@
 		},		
 		getStormTracks: function(basin, year, stormNo) {
 			$.ajax({
-				url: 'http://datamagic.ca/Hurricane/storm/' + basin + '/' + year + '/' + stormNo,
+				url: '/Hurricane/api/storm/' + basin + '/' + year + '/' + stormNo,
 				beforeSend: function(jqXHR, settings) {
 					HurricaneViewer._map.clearTracks();
 					Loading.start();
