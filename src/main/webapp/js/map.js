@@ -148,7 +148,7 @@ var MapTrack = function(map, stormTracks) {
 	this.computeBounds(stormTracks);
 };
 
-var Map = function(mapId) {
+var MyMap = function(mapId) {
 	this._mapId = mapId;
 	this._map = null;
 	this._tracks = [];

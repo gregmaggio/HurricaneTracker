@@ -5,12 +5,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Historical Hurricane Tracks</title>
 <link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAn9iskCTRkOTqdvvyut9zl9CIq0MpQ8M"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGrQY9PR0vgffEyDrbDVfxjvo_axwtGA0"></script>
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/json2.js"></script>
 <script type="text/javascript" src="js/colors.js"></script>
-<script type="text/javascript" src="js/map.js"></script>
+<script type="text/javascript" src="js/map.js?ver=1"></script>
 <script type="text/javascript" src="js/spin.js"></script>
 <script type="text/javascript" src="js/loading.js"></script>
 <script type="text/javascript">
@@ -22,7 +22,7 @@
 		initialize: function() {
 			Loading.initialize();
 			HurricaneTracker.resizeMapToFit();
-			HurricaneTracker._map = new Map("mapCanvas"); 
+			HurricaneTracker._map = new MyMap("mapCanvas"); 
 			HurricaneTracker.getBasins();			
 		},
 		resizeMapToFit: function() {
@@ -116,7 +116,7 @@
 		},
 		getStormTracks: function(basin, year, stormNo) {
 			$.ajax({
-				url: '/Hurricane/api/storm/' + basin + '/' + year + '/' + stormNo,
+				url: '/Hurricane/api/stormTrack/' + basin + '/' + year + '/' + stormNo,
 				beforeSend: function(jqXHR, settings) {
 					Loading.start();
 				},

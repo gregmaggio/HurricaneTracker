@@ -10,7 +10,7 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/json2.js"></script>
 <script type="text/javascript" src="js/colors.js"></script>
-<script type="text/javascript" src="js/map.js"></script>
+<script type="text/javascript" src="js/map.js?ver=1"></script>
 <script type="text/javascript" src="js/spin.js"></script>
 <script type="text/javascript" src="js/loading.js"></script>
 <script type="text/javascript">
@@ -22,7 +22,7 @@
 		initialize: function() {
 			Loading.initialize();
 			ENSO.resizeMapToFit();
-			ENSO._map = new Map("mapCanvas"); 
+			ENSO._map = new MyMap("mapCanvas"); 
 			ENSO.getBasins();
 			ENSO.getAll();
 		},
@@ -175,7 +175,7 @@
 			var selectedBasin = basin.options[basin.selectedIndex].value;
 			var startDay = 1;
 			var endDay = ENSO.getDaysInMonth(endMonth);
-			var url = '/Hurricane/api/storm/' + selectedBasin + '/' + startYear.toString() + '/' + startMonth.toString() + '/' + startDay.toString() + '/' + endYear.toString() + '/' + endMonth.toString() + '/' + endDay.toString() + '?sessionId=' + ENSO._sessionId;
+			var url = '/Hurricane/api/stormTrack/' + selectedBasin + '/' + startYear.toString() + '/' + startMonth.toString() + '/' + startDay.toString() + '/' + endYear.toString() + '/' + endMonth.toString() + '/' + endDay.toString() + '?sessionId=' + ENSO._sessionId;
 			$.ajax({
 				url: url,
 				beforeSend: function(jqXHR, settings) {
